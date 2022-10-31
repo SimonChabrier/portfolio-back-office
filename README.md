@@ -36,7 +36,7 @@ Use it to manage data content on my personnal portfolio.
 ## configure app to launch it
 
 - make and personalize your own .env.local
-- personalize .gitignore file as you need`
+- personalize .gitignore file as you need
 - install requiered depencies
 
 ```shell
