@@ -41,24 +41,24 @@ Use it to manage data content on my personnal portfolio.
 
 `install requiered depencies`
 
-```
+```shell
 composer install
 ```
 
 `create the database configured in your .env.local`
 
-```
+```shell
 bin/console doctrine:database:create
 ```
 `create the database table/s`
 
-```
+```shell
 bin/console doctrine:migrations:migrate 
-
 ```
+
 `launch symfony server`
 
-```
+```shell
 symfony serve
 ```
 
