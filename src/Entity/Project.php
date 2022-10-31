@@ -66,12 +66,12 @@ class Project
     private $updatedAt;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Techno::class, inversedBy="projects")
+     * @ORM\ManyToMany(targetEntity=Techno::class, inversedBy="projects", cascade={"persist"}, orphanRemoval=true)
      */
     private $technos;
 
     /**
-     * @ORM\OneToMany(targetEntity=Link::class, mappedBy="project")
+     * @ORM\OneToMany(targetEntity=Link::class, mappedBy="project", cascade={"persist", "remove"}, orphanRemoval=true)
      */
     private $links;
 
@@ -252,5 +252,6 @@ class Project
 
         return $this;
     }
+
 
 }

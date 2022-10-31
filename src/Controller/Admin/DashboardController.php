@@ -45,7 +45,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('User', 'fas fa-user', User::class)->setPermission('ROLE_ADMIN');
         yield MenuItem::linkToCrud('Projects', 'fa fa-comment', Project::class)->setPermission('ROLE_ADMIN');
         yield MenuItem::linkToCrud('Links', 'fa fa-comment', Link::class)->setPermission('ROLE_ADMIN');
-        yield MenuItem::linkToCrud('Tecnos', 'fa fa-comment', Techno::class)->setPermission('ROLE_ADMIN');
+        yield MenuItem::linkToCrud('Technos', 'fa fa-comment', Techno::class)->setPermission('ROLE_ADMIN');
         yield MenuItem::section('link');
         yield MenuItem::linkToUrl('Portfolio', 'fas fa-link', 'https://simonchabrier.github.io');
         yield MenuItem::linkToUrl('EasyAdmin', 'fas fa-link', 'https://symfony.com/bundles/EasyAdminBundle/current/index.html');
