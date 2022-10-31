@@ -24,14 +24,19 @@ class ProjectCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            TextField::new('title'),
-            TextareaField::new('desciption'),
-            TextField::new('date'),
+            TextField::new('title')
+                ->setLabel('Titre du projet'),
+            TextareaField::new('desciption')
+                ->hideOnIndex(),
+            TextField::new('date')
+                ->setLabel('Date de réalisation'),
             AssociationField::new('links')
                 ->setFormTypeOptions([
                     'by_reference' => false,
-                ]),
-            AssociationField::new('technos'),
+                ])
+                ->setLabel('Liens du projet'),
+            AssociationField::new('technos')
+                ->setLabel('Technos utilisées'),
         ];
     }
     
