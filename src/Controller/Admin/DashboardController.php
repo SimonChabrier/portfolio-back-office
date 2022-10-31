@@ -3,6 +3,10 @@
 namespace App\Controller\Admin;
 
 use App\Entity\User;
+use App\Entity\Project;
+use App\Entity\Link;
+use App\Entity\Techno;
+
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
@@ -39,9 +43,12 @@ class DashboardController extends AbstractDashboardController
         //uncomment this line to main Dashboard
         //yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
         yield MenuItem::linkToCrud('User', 'fas fa-user', User::class)->setPermission('ROLE_ADMIN');
+        yield MenuItem::linkToCrud('Projects', 'fa fa-comment', Project::class)->setPermission('ROLE_ADMIN');
+        yield MenuItem::linkToCrud('Links', 'fa fa-comment', Link::class)->setPermission('ROLE_ADMIN');
+        yield MenuItem::linkToCrud('Tecnos', 'fa fa-comment', Techno::class)->setPermission('ROLE_ADMIN');
         yield MenuItem::section('link');
         yield MenuItem::linkToUrl('Portfolio', 'fas fa-link', 'https://simonchabrier.github.io');
         yield MenuItem::linkToUrl('EasyAdmin', 'fas fa-link', 'https://symfony.com/bundles/EasyAdminBundle/current/index.html');
-        //yield MenuItem::linkToCrud('Projects', 'fa fa-comment', Project::class),
+        
     }
 }
