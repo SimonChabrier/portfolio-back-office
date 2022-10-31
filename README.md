@@ -35,28 +35,26 @@ Use it to manage data content on my personnal portfolio.
 
 ## configure app to launch it
 
-`make and personalize your own .env.local`
-
-`personalize .gitignore file as you need`
-
-`install requiered depencies`
+- make and personalize your own .env.local
+- personalize .gitignore file as you need`
+- install requiered depencies
 
 ```shell
 composer install
 ```
 
-`create the database configured in your .env.local`
+- create the database configured in your .env.local
 
 ```shell
 bin/console doctrine:database:create
 ```
-`create the database table/s`
+- create the database table/s
 
 ```shell
 bin/console doctrine:migrations:migrate 
 ```
 
-`launch symfony server`
+- launch symfony server
 
 ```shell
 symfony serve
@@ -64,7 +62,6 @@ symfony serve
 
 ## start to use app
 
-`create user account`
-
-`use your username to login`
+- create a user account
+- use your username to login
 
