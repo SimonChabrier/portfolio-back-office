@@ -1,6 +1,6 @@
-# Skeleton personnalisé.
+# Manage GitHub Portfolio Data.
 
-Use it to start a project with a skeleton project.
+Use it to manage data content on my personnal portfolio.
 
 ## Available dependencies
 
