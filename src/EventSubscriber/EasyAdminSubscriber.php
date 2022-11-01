@@ -10,15 +10,13 @@ class EasyAdminSubscriber implements EventSubscriberInterface
 {   
 
     /**
-     * Variable globale déclarée dans services.yaml 
-     * contenant le chemin vers le path local $uploadPath => assets/media/
+     * Paramètre déclarée dans services.yaml 
      * @var string
      */
     private $uploadPath;
 
      /**
-     * Variable globale déclarée dans services.yaml 
-     * contenant le chemin vers le path local $cachePath => media/cache/thumb/assets/upload/pictures/
+     * Paramètre déclarée dans services.yaml 
      * @var string
      */
     private $cachePath;
@@ -31,8 +29,7 @@ class EasyAdminSubscriber implements EventSubscriberInterface
     }
 
 
-    // On souscrit à l'événement BeforeEntityDeletedEvent de EasyAdmin 
-    // et on exécute le méthode unlinkPicture sur chaque événement
+    // On souscrit à l'événement AfterEntityDeletedEvent de EasyAdmin déclenché après la suppression d'une entité
     public static function getSubscribedEvents()
     {
         return [
@@ -45,12 +42,12 @@ class EasyAdminSubscriber implements EventSubscriberInterface
         // On récupère une instance de la Classe Project pour accèder à ses méthodes sur $entity
         $entity = $event->getEntityInstance();
 
-        // On vérifie qu'il s'agit bien de l'entité Picture.
-        if (!($entity instanceof Project)) {
+        if (!($entity instanceof Project)) 
+        {
             return;
         }
 
-        // On supprime chaque fichier image du rep $uploadPath et du rep $cachePath
+        // On supprime l'ensemble des images' à la suppression du projet en BackOffice
         unlink($this->cachePath . $entity->getPicture());
         unlink($this->cachePath . $entity->getPicture() . '.webp');
         unlink($this->uploadPath . $entity->getPicture());

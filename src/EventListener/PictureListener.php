@@ -10,14 +10,13 @@ class PictureListener
 {
 
     /**
-     * Paramètre déclaré => services.yaml
+     * Paramètre déclarée dans services.yaml 
      * @var string
      */
     private $uploadPath;
 
     /**
-     * Variable globale déclarée dans services.yaml 
-     * contenant le chemin vers le path local $cachePath => media/cache/thumb/assets/upload/pictures/
+     * Paramètre déclarée dans services.yaml 
      * @var string
      */
     private $cachePath;
@@ -36,51 +35,76 @@ class PictureListener
     }
 
     /**
-     * services.yaml
-     * apelle cette méthode sur les evenements Doctrine sur la class Project
+     * services.yaml apelle cette méthode sur les evenements Doctrine sur la class Project
      * @param Project $picture
      * @return void
      */
-    public function cachePictureFileOnUpload(Project $picture)
+    public function cachePictureFile(Project $picture)
     {   
-
-        // On traite la mise en cache
-        if($picture->getPicture() !== null) {
+        // Gestion de la mise en cache automatique des images
+        if($picture->getPicture() !== null) 
+        {   
+            // je reconstruit l'url + le nom du fichier à traiter et je lui passe mon filtre liip
             $this->liipFilterService->getUrlOfFilteredImage($this->uploadPath . $picture->getPicture(), 'thumb');
         } 
-        // je reconstruit l'url + le nom du fichier à traiter et je lui passe mon filtre liip
     }
 
+    /**
+     * services.yaml apelle cette méthode sur les evenements Doctrine sur la class Project
+     * pour nettoyer les images en cache à la mise à jour du projet en BackOffice
+     * @param Project $picture
+     * @return void
+     */
     public function clearAllOrphanPictures()
-    {
-        // On récupère tous les noms de fichiers des images de la BDD
-        $projects = $this->pr->findAll();
-        $pictures = [];
-        foreach($projects as $project) {
-            $pictures[] = $project->getPicture();
-        }
-
-        // On récupère tous les noms de fichiers des images du répertoire upload
-        $files = scandir($this->uploadPath);
-        $cachedFiles = scandir($this->cachePath);
+    {   
         
-        $files = array_diff($files, ['.', '..', '.DS_Store', '.gitkeep']);
-        
+        $projects = $this->pr->findAll(); //On récupère tous les projets
+        $pictures = []; //On prépare un tableau vide pour y stocker les noms des images
 
-        foreach($files as $file) {
-            if(!in_array($file, $pictures)) {
-                unlink($this->uploadPath . $file);
-            }
-        }
+        //? 1
+        //  Si $picture est vide c'est que aucun projet n'a d'image on supprime tout le cache et on sort de la méthode
+        if(empty($pictures))
+        {   
+            $cachedFiles = scandir($this->cachePath);
+            $cachedFiles = array_diff($cachedFiles, ['.', '..']);
 
-        $cachedFiles = array_diff($cachedFiles, ['.', '..']);
-        
-        foreach($cachedFiles as $file) {
-            if(!in_array($file, $pictures)) {
+            foreach ($cachedFiles as $file) 
+            {
                 unlink($this->cachePath . $file);
-                //unlink($this->cachePath . $file . '.webp');
             }
         }
 
+        //? 2
+        //  Sinon on gère la mise à jour du cache à la mise à jour de l'image en backOffice
+        //  la supression des images si supression de l'entité est gérée dans le EasyAdminSubscriber
+        foreach ($projects as $project) 
+        {
+            $pictures[] = $project->getPicture();
+
+            if ($project->getPicture() !== null) 
+            {
+                $files = scandir($this->uploadPath);
+                $cachedFiles = scandir($this->cachePath);
+                $files = array_diff($files, ['.', '..', '.DS_Store', '.gitkeep']);
+
+                foreach ($files as $file) 
+                {
+                    if (!in_array($file, $pictures)) 
+                    {
+                        unlink($this->uploadPath . $file);
+                    }
+                }
+
+                $cachedFiles = array_diff($cachedFiles, ['.', '..']);
+
+                foreach ($cachedFiles as $file) 
+                {
+                    if (!in_array($file, $pictures)) 
+                    {
+                        unlink($this->cachePath . $file);
+                    }
+                }
+            }
+        }
     }   
 }
