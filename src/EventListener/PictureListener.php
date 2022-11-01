@@ -51,21 +51,21 @@ class PictureListener
 
     public function updateCache()
     {   
-
-        //? 1 Upload source
+        //? 1 path Upload source
         $media = scandir($this->uploadPath); 
         $media = array_diff($media, ['.', '..', '.DS_Store', '.gitkeep']); 
 
-        //? 2 Cache
+        //? 2 path Cache
         $cachedFiles = scandir($this->cachePath);
         $cachedFiles = array_diff($cachedFiles, ['.', '..']);
 
-            //on supprime les images orphelines qui sont dans result mais pas dans $pictures
-            $result = array_diff($cachedFiles, $media);
-                dump($result);
-                foreach ($result as $file) {
-                    unlink($this->cachePath . $file);
-                }
+        //? 3 Comparaison
+        $result = array_diff($cachedFiles, $media);
+
+        //? 4 Suppression des fichiers en cache
+        foreach ($result as $file) {
+            unlink($this->cachePath . $file);
+        }
     }
 
 

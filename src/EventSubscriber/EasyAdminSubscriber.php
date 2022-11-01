@@ -47,10 +47,14 @@ class EasyAdminSubscriber implements EventSubscriberInterface
             return;
         }
 
-        // On supprime l'ensemble des images' à la suppression du projet en BackOffice
-        unlink($this->cachePath . $entity->getPicture());
-        unlink($this->cachePath . $entity->getPicture() . '.webp');
-        unlink($this->uploadPath . $entity->getPicture());
+        if ($entity->getPicture() !== null) 
+        {
+            // On supprime l'ensemble des images' à la suppression du projet en BackOffice
+            unlink($this->cachePath . $entity->getPicture());
+            unlink($this->cachePath . $entity->getPicture() . '.webp');
+            unlink($this->uploadPath . $entity->getPicture());
+        }
+        
     }
 
 }
