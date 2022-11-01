@@ -31,10 +31,12 @@ class ProjectCrudController extends AbstractCrudController
             AssociationField::new('links')->setFormTypeOptions([ 'by_reference' => false ])->setLabel('Liens du projet'), 
             //ArrayField::new('links')->setLabel('Liens du projet'),
             AssociationField::new('user')->setLabel('Auteur du projet'),
-            ImageField::new('picture')->setBasePath('assets/media/')
-                                    ->setUpLoadDir('public/assets/media/')->setLabel('Image')
-                                    ->setUploadedFileNamePattern('[randomhash].[extension]')
-                                    ->setRequired(false)
+            ImageField::new('picture')
+                ->setBasePath('assets/media/')
+                ->setUpLoadDir('public/assets/media/')
+                ->setLabel('Image')
+                ->setUploadedFileNamePattern('[randomhash].[extension]')
+                ->setRequired(false),
             
         ];
     }

@@ -38,6 +38,7 @@ Use it to manage data content on my personnal portfolio.
 - make and personalize your own .env.local
 - personalize .gitignore file as you need
 - install requiered depencies
+- create `media` directory in `public/assets/`
 
 ```shell
 composer install
