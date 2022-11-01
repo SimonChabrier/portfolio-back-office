@@ -9,5 +9,10 @@
 !/public/assets/media/.gitkeep
 /var/
 /vendor/
+/public/media/
 **/.DS_Store
 ###< symfony/framework-bundle ###
+
+###> liip/imagine-bundle ###
+/public/media/cache/
+###< liip/imagine-bundle ###

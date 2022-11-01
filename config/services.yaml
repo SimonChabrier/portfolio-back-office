@@ -6,7 +6,7 @@
 # Paramètre de stockage de mes fichiers images
 parameters:
     upload_directory: 'assets/media/'
-    cache_directory: 'media/cache/picture/assets/media/'
+    cache_directory: 'media/cache/thumb/assets/media/'
 
 services:
     # default configuration for services in *this* file
@@ -29,5 +29,23 @@ services:
             - '../src/Entity/'
             - '../src/Kernel.php'
 
+    # Déclaration du service Cache Manager de LiipImagineBundle
+    # pour l'injecter dans PictureListener.php
+    Liip\ImagineBundle\Service\FilterService:
+        alias: 'liip_imagine.service.filter'
+
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+    App\EventListener\PictureListener:
+            tags:
+                -
+                    # le nom du type d'évènement, ici un évènement doctrine entity listener
+                    name: doctrine.orm.entity_listener
+                    event: preUpdate
+                    entity: App\Entity\Project
+                    method: cachePictureFileOnUpload
+                -
+                    name: doctrine.orm.entity_listener
+                    event: prePersist
+                    entity: App\Entity\Project
+                    method: cachePictureFileOnUpload 

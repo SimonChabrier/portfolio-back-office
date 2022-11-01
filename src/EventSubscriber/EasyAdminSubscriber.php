@@ -6,28 +6,29 @@
 namespace App\EventSubscriber;
 
 use App\Entity\Project;
-use EasyCorp\Bundle\EasyAdminBundle\Event\BeforeEntityDeletedEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use EasyCorp\Bundle\EasyAdminBundle\Event\AfterEntityDeletedEvent;
+use EasyCorp\Bundle\EasyAdminBundle\Event\BeforeEntityUpdatedEvent;
+use EasyCorp\Bundle\EasyAdminBundle\Event\BeforeEntityPersistedEvent;
 
 class EasyAdminSubscriber implements EventSubscriberInterface
 {   
 
     /**
      * Variable globale déclarée dans services.yaml 
-     * contenant le chemin vers le path local $uploadPath => assets/upload/pictures/
+     * contenant le chemin vers le path local $uploadPath => assets/media/
      * @var string
      */
     private $uploadPath;
 
      /**
      * Variable globale déclarée dans services.yaml 
-     * contenant le chemin vers le path local $cachePath => media/cache/portrait/assets/upload/pictures/
+     * contenant le chemin vers le path local $cachePath => media/cache/thumb/assets/upload/pictures/
      * @var string
      */
     private $cachePath;
 
-    // On passe au contructeur les propriétés $uploadPath et $cachePath
-    // pour y accèder dans le contexte de ce Subscriber
+
     public function __construct(string $uploadPath, string $cachePath)
     {
         $this->uploadPath = $uploadPath;
@@ -35,19 +36,19 @@ class EasyAdminSubscriber implements EventSubscriberInterface
     }
 
     // On souscrit à l'événement BeforeEntityDeletedEvent de EasyAdmin 
-    // et on exécute le méthode deletePicture sur chaque événement
-    // pour supprimer du repertoire de stockage et de cache
-    // chaque fichier image lié à l'image supprimée depuis EasyAdmin.
+    // et on exécute le méthode unlinkPicture sur chaque événement
     public static function getSubscribedEvents()
     {
         return [
-            BeforeEntityDeletedEvent::class => ['deletePicture'],
+            AfterEntityDeletedEvent::class => ['unlinkPicture'],
+            //AfterEntityPersistedEvent::class => ['unlinkPicture'],
         ];
     }
 
-    public function deletePicture(BeforeEntityDeletedEvent $event)
+    public function unlinkPicture(AfterEntityDeletedEvent $event)
+    //public function unlinkPicture(AfterEntityPersistedEvent $event)
     {   
-        // On récupère une instance de la Classe Picture pour accèder à ses méthodes sur $entity
+        // On récupère une instance de la Classe Project pour accèder à ses méthodes sur $entity
         $entity = $event->getEntityInstance();
 
         // On vérifie qu'il s'agit bien de l'entité Picture.
@@ -56,10 +57,8 @@ class EasyAdminSubscriber implements EventSubscriberInterface
         }
 
         // On supprime chaque fichier image du rep $uploadPath et du rep $cachePath
-        // avec unlink(le chemin du repertoire qu'on concaténe à la valeur de pictureFile)
-        // On cibler systèmatiquement les fichiers correspondant à l'objet Picture courant.
+        unlink($this->cachePath . $entity->getPicture());
+        unlink($this->cachePath . $entity->getPicture() . '.webp');
         unlink($this->uploadPath . $entity->getPicture());
-        //unlink($this->cachePath . $entity->getPicture());
-        //unlink($this->cachePath . $entity->getPicture() . '.webp');
     }
 }
