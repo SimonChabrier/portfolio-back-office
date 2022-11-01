@@ -50,30 +50,22 @@ class PictureListener
     }
 
     public function updateCache()
-    {
-        $projects = $this->pr->findAll(); //On récupère tous les projets
-        $pictures = []; //On prépare un tableau vide pour y stocker les noms des images
+    {   
 
-        //? 1
-        // chercher les orphelins
-        
+        //? 1 Upload source
+        $media = scandir($this->uploadPath); 
+        $media = array_diff($media, ['.', '..', '.DS_Store', '.gitkeep']); 
+
+        //? 2 Cache
         $cachedFiles = scandir($this->cachePath);
         $cachedFiles = array_diff($cachedFiles, ['.', '..']);
 
-        foreach ($projects as $project) 
-        {
-            // On stocke les noms des images dans le tableau $pictures
-            $pictures[] = $project->getPicture();
-            $pictures[] = $project->getPicture() . '.webp';
-            dump($pictures);
             //on supprime les images orphelines qui sont dans result mais pas dans $pictures
-            if ($result = array_diff($cachedFiles, $pictures)) {
+            $result = array_diff($cachedFiles, $media);
                 dump($result);
                 foreach ($result as $file) {
                     unlink($this->cachePath . $file);
                 }
-            }
-        }
     }
 
 
