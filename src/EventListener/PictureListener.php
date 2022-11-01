@@ -62,14 +62,23 @@ class PictureListener
 
         // On récupère tous les noms de fichiers des images du répertoire upload
         $files = scandir($this->uploadPath);
+        $cachedFiles = scandir($this->cachePath);
         
         $files = array_diff($files, ['.', '..', '.DS_Store', '.gitkeep']);
-        //dd($files);
-        // On supprime les fichiers qui ne sont pas dans la BDD
+        
+
         foreach($files as $file) {
             if(!in_array($file, $pictures)) {
+                unlink($this->uploadPath . $file);
+            }
+        }
+
+        $cachedFiles = array_diff($cachedFiles, ['.', '..']);
+        
+        foreach($cachedFiles as $file) {
+            if(!in_array($file, $pictures)) {
                 unlink($this->cachePath . $file);
-                unlink($this->cachePath . $file . '.webp');
+                //unlink($this->cachePath . $file . '.webp');
             }
         }
 
