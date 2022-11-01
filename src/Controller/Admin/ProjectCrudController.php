@@ -5,7 +5,6 @@ namespace App\Controller\Admin;
 use App\Entity\Project;
 
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
@@ -29,7 +28,6 @@ class ProjectCrudController extends AbstractCrudController
             //* On AssociationField, add ->setFormTypeOptions([ 'by_reference' => false ])
             //* if more than one value in database
             AssociationField::new('links')->setFormTypeOptions([ 'by_reference' => false ])->setLabel('Liens du projet'), 
-            //ArrayField::new('links')->setLabel('Liens du projet'),
             AssociationField::new('user')->setLabel('Auteur du projet'),
             ImageField::new('picture')
                 ->setBasePath('assets/media/')
