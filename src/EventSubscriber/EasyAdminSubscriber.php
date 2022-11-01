@@ -30,16 +30,17 @@ class EasyAdminSubscriber implements EventSubscriberInterface
         $this->cachePath = $cachePath;
     }
 
+
     // On souscrit à l'événement BeforeEntityDeletedEvent de EasyAdmin 
     // et on exécute le méthode unlinkPicture sur chaque événement
     public static function getSubscribedEvents()
     {
         return [
-            AfterEntityDeletedEvent::class => ['unlinkPicture'],
+            AfterEntityDeletedEvent::class => ['unlinkPictureOnDelete'],
         ];
     }
 
-    public function unlinkPicture(AfterEntityDeletedEvent $event)
+    public function unlinkPictureOnDelete(AfterEntityDeletedEvent $event)
     {   
         // On récupère une instance de la Classe Project pour accèder à ses méthodes sur $entity
         $entity = $event->getEntityInstance();
@@ -54,4 +55,5 @@ class EasyAdminSubscriber implements EventSubscriberInterface
         unlink($this->cachePath . $entity->getPicture() . '.webp');
         unlink($this->uploadPath . $entity->getPicture());
     }
+
 }
