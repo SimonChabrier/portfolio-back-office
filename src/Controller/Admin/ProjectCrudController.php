@@ -2,16 +2,14 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\Link;
-use App\Entity\Techno;
 use App\Entity\Project;
 
-use App\Controller\Admin\LinkCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
-use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
 
 class ProjectCrudController extends AbstractCrudController
 {
@@ -27,9 +25,17 @@ class ProjectCrudController extends AbstractCrudController
             TextField::new('title')->setLabel('Titre du projet'),
             TextareaField::new('desciption')->hideOnIndex(),
             TextField::new('date')->setLabel('Date de réalisation'),
-            AssociationField::new('links')->setFormTypeOptions([ 'by_reference' => false ])->setLabel('Liens du projet'),
-            ArrayField::new('links')->setLabel('Liens du projet'),
-            //AssociationField::new('technos')->setLabel('Technos utilisées'),
+            AssociationField::new('technos')->setLabel('Technos utilisées'),
+            //* On AssociationField, add ->setFormTypeOptions([ 'by_reference' => false ])
+            //* if more than one value in database
+            AssociationField::new('links')->setFormTypeOptions([ 'by_reference' => false ])->setLabel('Liens du projet'), 
+            //ArrayField::new('links')->setLabel('Liens du projet'),
+            AssociationField::new('user')->setLabel('Auteur du projet'),
+            ImageField::new('picture')->setBasePath('assets/media/')
+                                    ->setUpLoadDir('public/assets/media/')->setLabel('Image')
+                                    ->setUploadedFileNamePattern('[randomhash].[extension]')
+                                    ->setRequired(false)
+            
         ];
     }
 
