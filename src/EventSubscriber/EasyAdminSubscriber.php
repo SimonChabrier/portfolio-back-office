@@ -1,15 +1,10 @@
 <?php
 
-// https://symfony.com/doc/5.4/event_dispatcher.html#event-aliases
-// https://www.php.net/manual/en/function.unlink.php
-
 namespace App\EventSubscriber;
 
 use App\Entity\Project;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Event\AfterEntityDeletedEvent;
-use EasyCorp\Bundle\EasyAdminBundle\Event\BeforeEntityUpdatedEvent;
-use EasyCorp\Bundle\EasyAdminBundle\Event\BeforeEntityPersistedEvent;
 
 class EasyAdminSubscriber implements EventSubscriberInterface
 {   
@@ -41,12 +36,10 @@ class EasyAdminSubscriber implements EventSubscriberInterface
     {
         return [
             AfterEntityDeletedEvent::class => ['unlinkPicture'],
-            //AfterEntityPersistedEvent::class => ['unlinkPicture'],
         ];
     }
 
     public function unlinkPicture(AfterEntityDeletedEvent $event)
-    //public function unlinkPicture(AfterEntityPersistedEvent $event)
     {   
         // On récupère une instance de la Classe Project pour accèder à ses méthodes sur $entity
         $entity = $event->getEntityInstance();
