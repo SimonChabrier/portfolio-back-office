@@ -1,0 +1,17 @@
+liip_imagine:
+
+    driver: "gd"
+    default_filter_set_settings:
+        format: webp
+        
+    webp:
+        generate: true
+        quality: 100    
+    # I set twig on lasz to fix deprecated message on future version
+    twig:
+        mode: lazy
+
+    filter_sets:
+        thumb: 
+            filters: 
+                thumbnail: { size: [300, 300], mode: outbound } 

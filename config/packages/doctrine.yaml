@@ -40,3 +40,15 @@ when@prod:
                     adapter: cache.app
                 doctrine.system_cache_pool:
                     adapter: cache.system
+
+# easy_admin:
+#     site_name: 'Portfolio'
+#     entities:
+#         Project:
+#             class: App\Entity\Project
+#             new:
+#                fields: ['links'] 
+#         Link:
+#             class: App\Entity\Link
+#             new:
+#                fields: ['project'] 
