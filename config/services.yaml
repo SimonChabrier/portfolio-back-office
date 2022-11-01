@@ -31,18 +31,13 @@ services:
     App\EventListener\PictureListener:
             tags:
                 -
-                    # le nom du type d'évènement, ici un évènement doctrine entity listener
                     name: doctrine.orm.entity_listener
-                    event: preUpdate
+                    event: postLoad
                     entity: App\Entity\Project
                     method: cachePictureFile
+
                 -
                     name: doctrine.orm.entity_listener
-                    event: prePersist
+                    event: postUpdate
                     entity: App\Entity\Project
-                    method: cachePictureFile
-                -
-                    name: doctrine.orm.entity_listener
-                    event: preFlush
-                    entity: App\Entity\Project
-                    method: clearAllOrphanPictures
+                    method: updateCache
