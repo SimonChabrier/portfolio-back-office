@@ -20,6 +20,7 @@ Use it to manage data content on my personnal portfolio.
 - Twig Bundle
 - Easy Admin
 - Liip Imagine
+- Nelmio CORS
 
 ## Available feature
 
