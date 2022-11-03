@@ -42,7 +42,7 @@ class ProjectRepository extends ServiceEntityRepository
     /**
      * @return Project[] Returns an array of Project objects
      */
-   public function findByStatus(): array
+   public function findAllPublishedProjects(): array
    {
        return $this->createQueryBuilder('p')
             ->andWhere('p.status = :val')

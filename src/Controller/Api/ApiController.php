@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Controller\Api;
-use App\Entity\Project;
+
 use App\Repository\ProjectRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -17,7 +17,7 @@ class ApiController extends AbstractController
     public function api(ProjectRepository $pr): Response
     {
 
-        $projects = $pr->findByStatus();
+        $projects = $pr->findAllPublishedProjects();
         return $this->json($projects, 200, [], ['groups' => 'project:read']);
 
     }
