@@ -39,3 +39,7 @@ npm run build
 ```shell
 symfony run -d yarn encore dev --watch
 ```
+
+### Depoyer en prod
+
+- [Doc déploiement sans install Node sur le serveur](https://symfony.com/doc/current/frontend/encore/faq.html#how-do-i-deploy-my-encore-assets)
