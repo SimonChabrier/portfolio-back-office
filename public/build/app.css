@@ -1,0 +1,187 @@
+/*!**************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[1].use[1]!./assets/styles/app.css ***!
+  \**************************************************************************************************************/
+@charset "UTF-8";
+/*-------------------------------------------------------------------------------------*/
+/*  reset															   
+/*-------------------------------------------------------------------------------------*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/*-------------------------------------------------------------------------------------*/
+/*  vars															   
+/*-------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------*/
+/*  Body															   
+/*-------------------------------------------------------------------------------------*/
+body {
+  font-family: "Poppins";
+  background: #a8dadc;
+}
+
+/*-------------------------------------------------------------------------------------*/
+/*  Fonts															   
+/*-------------------------------------------------------------------------------------*/
+/* poppins-200 - latin */
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 200;
+  src: url(/build/fonts/poppins-v19-latin-200.617b7f12.eot); /* IE9 Compat Modes */
+  src: local(""), url(/build/fonts/poppins-v19-latin-200.617b7f12.eot?#iefix) format("embedded-opentype"), url(/build/fonts/poppins-v19-latin-200.7498246a.woff2) format("woff2"), url(/build/fonts/poppins-v19-latin-200.9a201ad3.woff) format("woff"), url(/build/fonts/poppins-v19-latin-200.c3dc3693.ttf) format("truetype"), url(/build/images/poppins-v19-latin-200.3ffbd4d1.svg#Poppins) format("svg"); /* Legacy iOS */
+}
+/* poppins-regular - latin */
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  src: url(/build/fonts/poppins-v19-latin-regular.27a38aa3.eot); /* IE9 Compat Modes */
+  src: local(""), url(/build/fonts/poppins-v19-latin-regular.27a38aa3.eot?#iefix) format("embedded-opentype"), url(/build/fonts/poppins-v19-latin-regular.405055dd.woff2) format("woff2"), url(/build/fonts/poppins-v19-latin-regular.f61407da.woff) format("woff"), url(/build/fonts/poppins-v19-latin-regular.80946c08.ttf) format("truetype"), url(/build/images/poppins-v19-latin-regular.04277a79.svg#Poppins) format("svg"); /* Legacy iOS */
+}
+/* poppins-600 - latin */
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  src: url(/build/fonts/poppins-v19-latin-600.055c17a7.eot); /* IE9 Compat Modes */
+  src: local(""), url(/build/fonts/poppins-v19-latin-600.055c17a7.eot?#iefix) format("embedded-opentype"), url(/build/fonts/poppins-v19-latin-600.91145014.woff2) format("woff2"), url(/build/fonts/poppins-v19-latin-600.25ea8139.woff) format("woff"), url(/build/fonts/poppins-v19-latin-600.fbef39d5.ttf) format("truetype"), url(/build/images/poppins-v19-latin-600.604adf29.svg#Poppins) format("svg"); /* Legacy iOS */
+}
+/*-------------------------------------------------------------------------------------*/
+/*  Typà															   
+/*-------------------------------------------------------------------------------------*/
+h1 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  color: #212529;
+}
+
+h2 {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+  color: #343A40;
+}
+
+h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #495057;
+}
+
+a {
+  color: #F8F9FA;
+  text-transform: uppercase;
+}
+a:hover {
+  color: #F8F9FA;
+  transition: all 1s;
+}
+
+p {
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  color: #212529;
+}
+
+/*-------------------------------------------------------------------------------------*/
+/*  Home															   
+/*-------------------------------------------------------------------------------------*/
+.pageContent {
+  background-color: #F8F9FA;
+  padding: 1rem;
+  margin: 0.5rem;
+}
+
+.logButton {
+  border: none;
+  background-color: #457B9D;
+  border-radius: 0.2rem;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+}
+.logButton:hover {
+  background-color: #1d3557;
+  transition: all 2s;
+}
+
+/*-------------------------------------------------------------------------------------*/
+/*  Login															   
+/*-------------------------------------------------------------------------------------*/
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+.loginForm--content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/*-------------------------------------------------------------------------------------*/
+/*  Register															   
+/*-------------------------------------------------------------------------------------*/
+.registerForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+.registerForm--content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: flex-end;
+}
+.registerForm--label {
+  margin-left: 0.5rem;
+}/*# sourceMappingURL=app.css.map */
+
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiYXBwLmNzcyIsIm1hcHBpbmdzIjoiOzs7QUFBQSxnQkFBZ0I7QUNBaEI7QUFDQTt3RkFBQTtBQ0RBOzs7Ozs7Ozs7Ozs7O0VBYUM7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0FGS0Q7O0FFSEE7QUFDQTs7RUFFQztBRk1EOztBRUpBO0VBQ0M7QUZPRDs7QUVMQTtFQUNDO0FGUUQ7O0FFTkE7RUFDQztBRlNEOztBRVBBOztFQUVDO0VBQ0E7QUZVRDs7QUVSQTtFQUNDO0VBQ0E7QUZXRDs7QUM5Q0E7QUFDQTt3RkFBQTtBQUtBO0FBQ0E7d0ZBQUE7QUViQTtFQUNJO0VBQ0EsbUJDcUJPO0FKd0NYOztBQzdDQTtBQUNBO3dGQUFBO0FJbkJBO0FBQ0E7RUFDSTtFQUNBO0VBQ0E7RUFDQTtFQUNBLHlUQUs4RTtBTGdFbEY7QUs5REU7QUFDQTtFQUNFO0VBQ0E7RUFDQTtFQUNBO0VBQ0EsMlRBS2tGO0FMMkR0RjtBS3pERTtBQUNBO0VBQ0U7RUFDQTtFQUNBO0VBQ0E7RUFDQSw4VEFLOEU7QUxzRGxGO0FDbkVBO0FBQ0E7d0ZBQUE7QUt6QkE7RUFDSTtFQUNBLHFCRklXO0VFSFgsY0ZPUTtBSnlGWjs7QU03RkE7RUFDSTtFQUNBLHFCRkZXO0VFR1gsY0ZFVTtBSjhGZDs7QU01RkE7RUFDSTtFQUNBLHFCRlRXO0VFVVgsY0ZKUTtBSm1HWjs7QU0zRkE7RUFDSSxjRkhTO0VFSVQ7QU44Rko7QU01Rkk7RUFDSSxjRlBLO0VFUUw7QU44RlI7O0FNMUZBO0VBQ0k7RUFDQSxxQkYxQlc7RUUyQlgsY0Z2QlE7QUpvSFo7O0FDaEdBO0FBQ0E7d0ZBQUE7QU0vQkE7RUFDSSx5QkhpQlM7RUdoQlQsYUhHWTtFR0ZaLGNIR1c7QUppSWY7O0FPaklBO0VBQ0k7RUFDQSx5QkhjUTtFR2JSLHFCSEZZO0VHR1osa0JISlc7RUdLWCxlSExXO0FKeUlmO0FPaklJO0VBQ0kseUJITUU7RUdMRjtBUG1JUjs7QUMvR0E7QUFDQTt3RkFBQTtBT3JDQTtFQUNJO0VBQ0E7RUFDQTtFQUNBLFdKRVc7QUp1SmY7QVF2Skk7RUFDSTtFQUNBO0VBQ0EsV0pITztBSjRKZjs7QUN4SEE7QUFDQTt3RkFBQTtBUTNDQTtFQUNJO0VBQ0E7RUFDQTtFQUNBLFdMRVc7QUpzS2Y7QVN0S0k7RUFDSTtFQUNBO0VBQ0EsV0xITztFS0lQO0FUd0tSO0FTcktJO0VBQ1E7QVR1S1osb0MiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9hc3NldHMvc3R5bGVzL2FwcC5jc3MiLCJ3ZWJwYWNrOi8vLy4vYXNzZXRzL3N0eWxlcy9hcHAuc2NzcyIsIndlYnBhY2s6Ly8vLi9hc3NldHMvc3R5bGVzL19yZXNldC5zY3NzIiwid2VicGFjazovLy8uL2Fzc2V0cy9zdHlsZXMvX2JvZHkuc2NzcyIsIndlYnBhY2s6Ly8vLi9hc3NldHMvc3R5bGVzL192YXJzLnNjc3MiLCJ3ZWJwYWNrOi8vLy4vYXNzZXRzL3N0eWxlcy9fZm9udHMuc2NzcyIsIndlYnBhY2s6Ly8vLi9hc3NldHMvc3R5bGVzL190eXBvLnNjc3MiLCJ3ZWJwYWNrOi8vLy4vYXNzZXRzL3N0eWxlcy9faG9tZS5zY3NzIiwid2VicGFjazovLy8uL2Fzc2V0cy9zdHlsZXMvX2xvZ2luRm9ybS5zY3NzIiwid2VicGFjazovLy8uL2Fzc2V0cy9zdHlsZXMvX3JlZ2lzdGVyRm9ybS5zY3NzIl0sIm5hbWVzIjpbXSwic291cmNlUm9vdCI6IiJ9*/

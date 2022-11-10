@@ -1,0 +1,21 @@
+{
+  "build/app.css": "/build/app.css",
+  "build/app.js": "/build/app.js",
+  "build/runtime.js": "/build/runtime.js",
+  "build/vendors-node_modules_symfony_stimulus-bridge_dist_index_js-node_modules_core-js_modules_es_er-f24dd6.js": "/build/vendors-node_modules_symfony_stimulus-bridge_dist_index_js-node_modules_core-js_modules_es_er-f24dd6.js",
+  "build/images/poppins-v19-latin-200.svg": "/build/images/poppins-v19-latin-200.3ffbd4d1.svg",
+  "build/images/poppins-v19-latin-regular.svg": "/build/images/poppins-v19-latin-regular.04277a79.svg",
+  "build/images/poppins-v19-latin-600.svg": "/build/images/poppins-v19-latin-600.604adf29.svg",
+  "build/fonts/poppins-v19-latin-200.ttf": "/build/fonts/poppins-v19-latin-200.c3dc3693.ttf",
+  "build/fonts/poppins-v19-latin-regular.ttf": "/build/fonts/poppins-v19-latin-regular.80946c08.ttf",
+  "build/fonts/poppins-v19-latin-600.ttf": "/build/fonts/poppins-v19-latin-600.fbef39d5.ttf",
+  "build/fonts/poppins-v19-latin-600.woff": "/build/fonts/poppins-v19-latin-600.25ea8139.woff",
+  "build/fonts/poppins-v19-latin-regular.woff": "/build/fonts/poppins-v19-latin-regular.f61407da.woff",
+  "build/fonts/poppins-v19-latin-200.woff": "/build/fonts/poppins-v19-latin-200.9a201ad3.woff",
+  "build/fonts/poppins-v19-latin-600.eot": "/build/fonts/poppins-v19-latin-600.055c17a7.eot",
+  "build/fonts/poppins-v19-latin-200.eot": "/build/fonts/poppins-v19-latin-200.617b7f12.eot",
+  "build/fonts/poppins-v19-latin-regular.eot": "/build/fonts/poppins-v19-latin-regular.27a38aa3.eot",
+  "build/fonts/poppins-v19-latin-600.woff2": "/build/fonts/poppins-v19-latin-600.91145014.woff2",
+  "build/fonts/poppins-v19-latin-200.woff2": "/build/fonts/poppins-v19-latin-200.7498246a.woff2",
+  "build/fonts/poppins-v19-latin-regular.woff2": "/build/fonts/poppins-v19-latin-regular.405055dd.woff2"
+}
