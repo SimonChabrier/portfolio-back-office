@@ -13,7 +13,6 @@ class HomeController extends AbstractController
      */
     public function index(): Response
     {
-
         if($this->getUser())
         {
             if($this->getUser()->getRoles()[0] === 'ROLE_ADMIN')
@@ -22,9 +21,7 @@ class HomeController extends AbstractController
             }   
         } 
 
-        return $this->render('home/index.html.twig', [
-            'controller_name' => 'HomeController',
-        ]);
+        return $this->render('home/index.html.twig', []);
 
     }
 }

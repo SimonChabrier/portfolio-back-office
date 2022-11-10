@@ -11,6 +11,7 @@ Use it to manage data content on my personnal portfolio.
 - Php Faker
 - Stof Extension Bundle
 - Security Bundle
+- Serializer Pack
 - Validator
 - Verify Email Bundle
 - Form Bundle
@@ -18,6 +19,8 @@ Use it to manage data content on my personnal portfolio.
 - Assets
 - Twig Bundle
 - Easy Admin
+- Liip Imagine
+- Nelmio CORS
 
 ## Available feature
 
@@ -31,7 +34,10 @@ Use it to manage data content on my personnal portfolio.
 - CreatedAt UpdatedAt generate in User Entity by Stof Extensio Bundle
 - Slug generate in User Entity by Stof Extensio Bundle
 - Public directory content: pictures / css + reset.css -> scss ready (need Sass Compiler extension) / fonts -> Poppins / js / Favicon
-- ready to personalize
+- Picture resize and cache on Doctrine Event Listener on create Item
+- Picture cache and main update on Doctrine Event Listener on update or delete Item picture
+- Picture cache and main unlink on Easy Admin Subscriber on delete Item
+- Serializer to send Json
 
 ## configure app to launch it
 

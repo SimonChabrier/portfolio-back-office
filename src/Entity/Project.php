@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\ProjectRepository;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
@@ -19,26 +20,31 @@ class Project
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups({"project:read"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @Groups({"project:read"})
      */
     private $title;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
+     * @Groups({"project:read"})
      */
     private $picture;
 
     /**
      * @ORM\Column(type="string", length=30)
+     * @Groups({"project:read"})
      */
     private $date;
 
     /**
      * @ORM\Column(type="text")
+     * @Groups({"project:read"})
      */
     private $desciption;
 
@@ -67,11 +73,13 @@ class Project
 
     /**
      * @ORM\ManyToMany(targetEntity=Techno::class, inversedBy="projects")
+     * @Groups({"project:read"})
      */
     private $technos;
 
     /**
      * @ORM\OneToMany(targetEntity=Link::class, mappedBy="project", cascade={"persist", "remove"})
+     * @Groups({"project:read"})
      */
     private $links;
 
@@ -253,5 +261,9 @@ class Project
         return $this;
     }
 
+    public function __toString()
+    {
+        return $this->title;
+    }
 
 }

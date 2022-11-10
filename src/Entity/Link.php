@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\LinkRepository;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -19,6 +20,7 @@ class Link
 
     /**
      * @ORM\Column(type="string", length=150)
+     * @Groups({"project:read"})
      */
     private $link;
 
