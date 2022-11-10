@@ -21,6 +21,7 @@ Use it to manage data content on my personnal portfolio.
 - Easy Admin
 - Liip Imagine
 - Nelmio CORS
+- Encore
 
 ## Available feature
 
@@ -60,10 +61,10 @@ bin/console doctrine:database:create
 bin/console doctrine:migrations:migrate 
 ```
 
-- launch symfony server
+- launch symfony server and watch fot compile JS and Css from WebPack ./assets
 
 ```shell
-symfony serve
+symfony run -d yarn encore dev --watch
 ```
 
 ## start to use app
