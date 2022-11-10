@@ -1,3 +1,6 @@
+//? Configuration personnalisée de Webpack
+//* https://grafikart.fr/tutoriels/encore-symfony-1075
+
 const Encore = require('@symfony/webpack-encore');
 
 // Manually configure the runtime environment if not already configured yet by the "encore" command.
@@ -17,10 +20,14 @@ Encore
     /*
      * ENTRY CONFIG
      *
-     * Each entry will result in one JavaScript file (e.g. app.js)
+     * Chaque entry est un fichier JS qui sera compilé séparément
      * and one CSS file (e.g. app.css) if your JavaScript imports CSS.
      */
+
+    //* le premier fichier chargé par le navigateur
     .addEntry('app', './assets/app.js')
+
+
 
     // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
     .enableStimulusBridge('./assets/controllers.json')
@@ -73,4 +80,5 @@ Encore
     //.autoProvidejQuery()
 ;
 
+//* génrère cette configuration normalement dans le fichier public/build/manifest.json
 module.exports = Encore.getWebpackConfig();
