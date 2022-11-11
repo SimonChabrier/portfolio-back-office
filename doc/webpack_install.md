@@ -32,14 +32,3 @@ npm run build
 {% endblock %}
 ```
 
-### Lancer le serveur
-
-- [Doc Symfony Seve](https://symfony.com/doc/5.4/setup/symfony_server.html)
-  
-```shell
-symfony run -d yarn encore dev --watch
-```
-
-### Depoyer en prod
-
-- [Doc déploiement sans install Node sur le serveur](https://symfony.com/doc/current/frontend/encore/faq.html#how-do-i-deploy-my-encore-assets)

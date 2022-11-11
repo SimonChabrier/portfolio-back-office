@@ -38,7 +38,7 @@ Use it to manage data content on my personnal portfolio.
 - Picture resize and cache on Doctrine Event Listener on create Item
 - Picture cache and main update on Doctrine Event Listener on update or delete Item picture
 - Picture cache and main unlink on Easy Admin Subscriber on delete Item
-- Serializer to send Json
+- Serializer to send API endpoint and Json data from ApiController
 
 ## configure app to launch it
 
@@ -59,12 +59,6 @@ bin/console doctrine:database:create
 
 ```shell
 bin/console doctrine:migrations:migrate 
-```
-
-- launch symfony server and watch fot compile JS and Css from WebPack ./assets
-
-```shell
-symfony run -d yarn encore dev --watch
 ```
 
 ## start to use app

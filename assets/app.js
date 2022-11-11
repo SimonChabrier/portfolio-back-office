@@ -1,13 +1,19 @@
-// Welcome to your app's main JavaScript file!
-// We recommend including the built version of this JavaScript file (and its CSS file) in your base layout (base.html.twig).
-
-// any CSS you import will output into a single css file (app.css in this case)
+// Css
 import './styles/app.css';
+
 // start the Stimulus application
-import './bootstrap';
+//import './bootstrap';
 
+// import React
+import React from 'react';
+// import ReactDOM and create a root element
+import { createRoot } from 'react-dom/client';
 
-//* Mon Code
-import app from './components/firstComponent.js';
+// Mon composant React
+import App from './components/App';
 
-document.addEventListener('DOMContentLoaded', app.init);
+// Création de l'élément racine et insertion dans le DOM du coposant App
+const container = document.getElementById('root');
+const root = createRoot(container);
+root.render(<App />);
+

@@ -18,7 +18,12 @@ class ApiController extends AbstractController
     {
 
         $projects = $pr->findAllPublishedProjects();
-        return $this->json($projects, 200, [], ['groups' => 'project:read']);
+        
+        return $this->json(
+            $projects,
+             200, 
+             [], 
+             ['groups' => 'project:read']);
 
     }
 
