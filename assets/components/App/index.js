@@ -4,6 +4,7 @@ import React from 'react';
 // import Components
 import Projects from '../Projects';
 import SignupForm from '../Form';
+import FormYup from '../Yup';
 
 // Start App class
 class App extends React.PureComponent {
@@ -25,6 +26,7 @@ class App extends React.PureComponent {
       <>
         <Projects />
         <SignupForm />
+        <FormYup />
       </>
     )
   }

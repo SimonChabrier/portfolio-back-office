@@ -43,3 +43,15 @@ Formik pour les formulaires
 yarn add formik
 ```
 
+Yup pour la validetion de formulaires
+
+```shell
+yarn add yup
+```
+
+Bootsrap
+
+```shell
+yarn add bootstrap
+```
+
