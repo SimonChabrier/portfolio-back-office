@@ -3,7 +3,7 @@
     "app": {
       "js": [
         "http://localhost:8080/build/runtime.js",
-        "http://localhost:8080/build/vendors-node_modules_core-js_modules_es_array_concat_js-node_modules_core-js_modules_es_array-9500c8.js",
+        "http://localhost:8080/build/vendors-node_modules_core-js_modules_es_array_concat_js-node_modules_core-js_modules_es_array-c7e26d.js",
         "http://localhost:8080/build/app.js"
       ],
       "css": [
