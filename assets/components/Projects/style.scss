@@ -3,3 +3,114 @@
     text-transform: lowercase;
     font-size: 10px;
 }
+
+//projec card item
+.card {
+    width: 300px;
+    padding: 1rem;
+    border-radius: .5rem;
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,.1), 0 1px 3px rgba(0,0,0,.2);
+      
+    &--header {
+        color: white;
+    }
+
+    &--title {
+        font-size: 1.2rem;
+        font-weight: 400;
+        margin: 0 0 .7rem 0;
+        padding: .5rem 0 .5rem .5rem;
+        text-transform: uppercase;
+        color: rgb(133, 133, 133);
+    }
+
+    &--picture > img {
+        width: 300px;
+        height: 250px;
+        object-fit: cover;
+    }
+
+    &--date {
+        font-size: .8rem;
+        font-weight: 200;
+        padding: 1rem 0 1rem .5rem;
+        color: black;
+    }
+
+    &--content {
+        padding: .5rem;
+    }
+
+    &--techno {
+        padding:  .5rem 0;
+        font-weight: 200;
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+    }
+
+    &--span {
+        text-transform: lowercase;
+        padding: .5rem;
+        border: none;
+        border-radius: 0.4rem;
+        font-size: 1rem;
+        outline: none;
+        color: white;
+        background-color: blueviolet;
+    }
+
+    &--span--btn {
+        text-transform: lowercase;
+        padding: .5rem;
+        border: none;
+        border-radius: 0.4rem;
+        font-size: 1rem;
+        outline: none;
+        color: white;
+        width: 200px;
+    }
+
+    &--span--php {
+        background-color: hwb(0 0% 100%);
+        
+    }
+
+    &--span--html {
+        background-color: rgb(255, 143, 6);
+    }
+
+    &--span--css {
+        background-color: rgb(48, 100, 8);
+    }
+
+    &--span--bootstrap5 {
+        background-color: rgb(42, 46, 147);
+    }
+
+    &--span--altorouter {
+        background-color: rgb(16, 134, 173);
+    }
+
+    &--span--plates {
+        background-color: rgb(94, 16, 173);
+    }
+
+    &--span--symfonyrouter {
+        background-color: rgb(172, 22, 2);
+    }
+
+
+    &--text p {
+        margin: 0;
+        padding: .5rem 0;
+    }
+
+    &--footer {
+        margin-top: .5rem;
+        padding:.6rem ;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+}
