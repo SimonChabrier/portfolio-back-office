@@ -1,9 +1,3 @@
-.project--links {
-  color: black;
-  text-transform: lowercase;
-  font-size: 10px;
-}
-
 .card {
   width: 300px;
   padding: 1rem;
@@ -94,4 +88,9 @@
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
+}
+.card--links {
+  color: black;
+  text-transform: lowercase;
+  font-size: 10px;
 }/*# sourceMappingURL=style.css.map */

@@ -1,9 +1,3 @@
-.project--links{
-    color: black;
-    text-transform: lowercase;
-    font-size: 10px;
-}
-
 //projec card item
 .card {
     width: 300px;
@@ -112,5 +106,11 @@
         display: flex;
         flex-wrap: wrap;
         gap: 1rem;
+    }
+
+    &--links {
+        color: black;
+        text-transform: lowercase;
+        font-size: 10px;
     }
 }
