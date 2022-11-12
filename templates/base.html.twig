@@ -76,11 +76,12 @@
         
         <title>{% block title %}Portfolio Back Office{% endblock %}</title>    
 </head>
-<div id="root"></div>
+
     <body>
         {% include '_fragments/_header.html.twig' %}
         {% block body %}
+        
         {% endblock %}
-        {% include '_fragments/_footer.html.twig' %}
+        {# {% include '_fragments/_footer.html.twig' %} #}
     </body>
 </html>

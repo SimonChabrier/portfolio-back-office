@@ -5,11 +5,9 @@ import PropTypes from 'prop-types';
 
 const Header = ({title}) => {
   return (
-    <div className='pageContent'>
     <header className="header">
-      <h1>{title}</h1>
+      <section className='header--title'>{title}</section>
     </header>
-    </div>
   )
 }
 

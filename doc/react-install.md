@@ -25,5 +25,16 @@ Pour le css
 yarn add sass-loader@^13.0.0 sass --dev
 ```
 
+Axios pour les requêtes fetch
+
+```shell
+yarn add axios
+```
+
+React Router
+
+```shell
+yarn add react-router-dom
+```
 
 

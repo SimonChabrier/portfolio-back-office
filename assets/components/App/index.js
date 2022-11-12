@@ -2,10 +2,11 @@
 import React from 'react';
 
 // import Components
-import Header from '../../components/Header';
+import Projects from '../Projects';
 
 // Start App class
 class App extends React.PureComponent {
+  
   // Lifecycle method
   state = {
     title: 'Default Title'
@@ -13,12 +14,16 @@ class App extends React.PureComponent {
 
   // Methods
 
+  componentDidMount() {
+    console.log('App mounted');
+  }
+
   // Render method
   render() {
     return (
-      <div>
-        <Header title={this.state.title}/>
-      </div>
+      <>
+        <Projects />
+      </>
     )
   }
 }
