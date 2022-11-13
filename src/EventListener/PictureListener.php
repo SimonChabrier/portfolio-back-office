@@ -62,7 +62,7 @@ class PictureListener
         //? 3 Comparaison
         $result = array_diff($cachedFiles, $media);
 
-        //? 4 Suppression des fichiers en cache
+        //? 4 Delete files in cache
         foreach ($result as $file) {
             unlink($this->cachePath . $file);
         }

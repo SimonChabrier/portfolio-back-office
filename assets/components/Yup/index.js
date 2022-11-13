@@ -1,205 +1,87 @@
 import React from 'react';
 import {Formik, Field, Form, ErrorMessage} from 'formik';
+
 import * as Yup from 'yup';
 import axios from 'axios';
 import "bootstrap/dist/css/bootstrap.css";
 
-const validationSchema = Yup.object().shape({
-    firstName: Yup.string()
-        .min(5, "trop petit")
-        .max(50, "trop long!")
-        .required("Ce champ est obligatoire"),
-    lastName: Yup.string()
-        .min(2, "trop petit")
-        .max(10, "trop long!")
-        .required("Ce champ est obligatoire"),
-    email: Yup.string()
-        .email("email invalide")
-        .required("l'email est obligatoire"),
-    password: Yup.string()
-        .required("Mot de passe est obligatoire")
-        .min(8, "Mot de passe doit être plus grand que 8 caractères")
-        .max(50, "Mot de passe doit être plus petit que 50 caractères"),
-    confirmPassword: Yup.string()
-        .required("Confirmation de mot de passe est obligatoire")
-        .oneOf(
-            [Yup.ref("password"), null],
-            "Le mot de passe de confirmation ne correspond pas"
-        ),
-    acceptTerms: Yup.bool().oneOf([true], "Accepter les conditions est obligatoire"),
-});
-
-
+//Valeurs par défaut
 const initialValues = {
-    firstName: "",
-    lastName: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
+    title: "",
+    picture: "",
+    date: "",
+    desciption: "",
     acceptTerms: false,
 };
 
-
-const handleSubmit = (values) => {
-
-// axios.post('https://127.0.0.1:8000/api/register', values);
-// console.log(values);
-
-axios.post('https://127.0.0.1:8000/api/register', 
-{
-    "title": "Project 1201",
-    "picture": "35b8e4896cf4f0a03721dd6fc65500e14fc97a9c.jpg",
-    "date": "Octobre 2022",
-    "desciption": "POst 1200",
-    "technos": [
-        {
-            "name": "php"
-        },
-        {
-            "name": "html"
-        },
-        {
-            "name": "css"
-        }
-    ],
-    "links": []
-})
-.then(function (response) {
-	console.log(response);
-})
-.catch(function (error) {
-	console.log(error);
+// Validation
+const validationSchema = Yup.object().shape({
+    title: Yup.string().min(5, "trop petit").max(50, "trop long!").required("Ce champ est obligatoire"),
+    date: Yup.string(),
+    desciption: Yup.string().required("La description est obligatoire"),
 });
 
+
+// Envoi des données
+const handleSubmit = (values) => {
+ 
+    axios.post('https://127.0.0.1:8000/api/register', values)
+    .then(function (response) {
+        console.log(response);
+    })
+    .catch(function (error) {
+        console.log(error);
+    });
 };
 
+// Rendu du formulaire
 const FormYup = () => {
     return (
         <div className="container">
             <div className="row">
                 <div className="col-md-6 offset-md-3 pt-3">
-                    <h1 className="text-center">Inscription</h1>
-                    <Formik
-                        initialValues={initialValues}
-                        validationSchema={validationSchema}
-                        onSubmit={(values) =>handleSubmit(values)}
-                    >
+                    <h1 className="text-center">Publier</h1>
+                    <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={(values) =>handleSubmit(values)}>
                         {({ resetForm }) => (
                             <Form>
                                 <div className="form-group mb-3">
-                                    <label htmlFor="firstName">
-                                        Prénom:
-                                    </label>
-                                    <Field
-                                        type="text"
-                                        id="firstName"
-                                        name="firstName"
-                                        className="form-control"
-                                    />
-                                    <ErrorMessage
-                                        name="firstName"
-                                        component="small"
-                                        className="text-danger"
-                                    />
+                                    <label htmlFor="title"> Titre: </label>
+                                    <Field type="text" id="title" name="title" className="form-control"/>
+                                    <ErrorMessage name="title" component="small" className="text-danger"/>
                                 </div>
                                 <div className="form-group mb-3">
-                                    <label htmlFor="lastName">
-                                        Nom:
-                                    </label>
-                                    <Field
-                                        type="text"
-                                        id="lastName"
-                                        name="lastName"
-                                        className="form-control"
-                                    />
-                                    <ErrorMessage
-                                        name="lastName"
-                                        component="small"
-                                        className="text-danger"
-                                    />
+                                    <label htmlFor="picture"> Image: </label>
+                                    <Field type="file" id="picture" name="picture" className="form-control" accept="image/png, image/jpeg" />
+                                    {/* <ErrorMessage name="picture" component="small" className="text-danger" /> */}
                                 </div>
                                 <div className="form-group mb-3">
-                                    <label htmlFor="email">
-                                        Email:
-                                    </label>
-                                    <Field
-                                        type="email"
-                                        id="email"
-                                        name="email"
-                                        className="form-control"
-                                    />
-                                    <ErrorMessage
-                                        name="email"
-                                        component="small"
-                                        className="text-danger"
-                                    />
+                                    <label htmlFor="date"> Date: </label>
+                                    <Field type="text" id="date" name="date" className="form-control" />
+                                    <ErrorMessage name="date" component="small" className="text-danger" />
                                 </div>
                                 <div className="form-group mb-3">
-                                    <label htmlFor="password">
-                                        Mot de passe:
-                                    </label>
-                                    <Field
-                                        type="password"
-                                        id="password"
-                                        name="password"
-                                        className="form-control"
-                                    />
-                                    <ErrorMessage
-                                        name="password"
-                                        component="small"
-                                        className="text-danger"
-                                    />
+                                    <label htmlFor="desciption"> Description:</label>
+                                    <Field type="textarea" rows="4"  cols="50" id="desciption" name="desciption" className="form-control" />
+                                    <ErrorMessage name="desciption" component="small" className="text-danger" />
                                 </div>
-                                <div className="form-group mb-3">
-                                    <label htmlFor="confirmPassword">
-                                        Confirmer le mot de
-                                        passe:
-                                    </label>
-                                    <Field
-                                        type="password"
-                                        id="confirmPassword"
-                                        name="confirmPassword"
-                                        className="form-control"
-                                    />
-                                    <ErrorMessage
-                                        name="confirmPassword"
-                                        component="small"
-                                        className="text-danger"
-                                    />
-                                </div>
+                                {/* <div className="form-group mb-3">
+                                    <label htmlFor="technos"> Technos:</label>
+                                    <Field type="text" id="technos" name="technos" className="form-control" />
+                                    <ErrorMessage name="technos" component="small" className="text-danger" />
+                                </div> */}
+                                {/* <div className="form-group mb-3">
+                                    <label htmlFor="links"> Liens: </label>
+                                    <Field type="text" id="links" name="links" className="form-control" />
+                                    <ErrorMessage name="links" component="small" className="text-danger"/>
+                                </div> */}
                                 <div className="form-group form-check mb-5">
-                                    <Field
-                                        name="acceptTerms"
-                                        type="checkbox"
-                                        className="form-check-input"
-                                    />
-                                    <label
-                                        htmlFor="acceptTerms"
-                                        className="form-check-label"
-                                    >
-                                        J'ai lu et j'accepte
-                                        les conditions
-                                    </label>
-                                    <ErrorMessage
-                                        name="acceptTerms"
-                                        component="small"
-                                        className="text-danger d-block"
-                                    />
+                                    <Field name="acceptTerms" type="checkbox" className="form-check-input" />
+                                    <label htmlFor="acceptTerms" className="form-check-label">Je confirme la saisie</label>
+                                    <ErrorMessage name="acceptTerms" component="small" className="text-danger d-block"/>
                                 </div>
                                 <div className="form-group d-flex justify-content-end gap-3">
-                                    <button
-                                        type="submit"
-                                        className="btn btn-primary"
-                                    >
-                                        S'inscrire
-                                    </button>
-                                    <button
-                                        type="button"
-                                        onClick={resetForm}
-                                        className="btn btn-danger"
-                                    >
-                                        Annuler
-                                    </button>
+                                    <button type="submit" className="btn btn-primary">S'inscrire</button>
+                                    <button type="button" onClick={resetForm} className="btn btn-danger">Reset</button>
                                 </div>
                             </Form>
                         )}

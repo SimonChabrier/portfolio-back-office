@@ -41,9 +41,7 @@ class ApiController extends AbstractController
             SerializerInterface $serializer,
             ValidatorInterface $validator): Response
     {
-
         $data = $request->getContent();
-        //dd($data);
         $newProject = $serializer->deserialize($data, Project::class, 'json');       
         $errors = $validator->validate($newProject);
 
