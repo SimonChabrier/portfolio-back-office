@@ -18,12 +18,16 @@
         color: rgb(133, 133, 133);
     }
 
+    &--picture {
+        text-align: center;
+    }
+
     &--picture > img {
-        width: 300px;
+        width: 250px;
         height: 250px;
         object-fit: cover;
     }
-
+    
     &--date {
         font-size: .8rem;
         font-weight: 200;

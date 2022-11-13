@@ -23,6 +23,7 @@ class Techno
     /**
      * @ORM\Column(type="string", length=30)
      * @Groups({"project:read"})
+     * @Groups({"project:post"})
      */
     private $name;
 

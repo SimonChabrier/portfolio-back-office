@@ -3,7 +3,7 @@ import React from "react";
 
 import Projects from "./Projects";
 
-const baseURL = "http://127.0.0.1:8000/api";
+const baseURL = "https://127.0.0.1:8000/api";
 
 const GetProjects = () => {
   const [projects, setProjects] = React.useState(null);

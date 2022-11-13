@@ -13,13 +13,13 @@ class HomeController extends AbstractController
      */
     public function index(): Response
     {
-        if($this->getUser())
-        {
-            if($this->getUser()->getRoles()[0] === 'ROLE_ADMIN')
-            {
-                return $this->redirectToRoute('app_admin');
-            }   
-        } 
+        // if($this->getUser())
+        // {
+        //     if($this->getUser()->getRoles()[0] === 'ROLE_ADMIN')
+        //     {
+        //         return $this->redirectToRoute('app_admin');
+        //     }   
+        // } 
 
         return $this->render('home/index.html.twig', []);
 

@@ -15,8 +15,11 @@
   text-transform: uppercase;
   color: rgb(133, 133, 133);
 }
+.card--picture {
+  text-align: center;
+}
 .card--picture > img {
-  width: 300px;
+  width: 250px;
   height: 250px;
   -o-object-fit: cover;
      object-fit: cover;

@@ -21,6 +21,7 @@ class Link
     /**
      * @ORM\Column(type="string", length=150)
      * @Groups({"project:read"})
+     * @Groups({"project:post"})
      */
     private $link;
 

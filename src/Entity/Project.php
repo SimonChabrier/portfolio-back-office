@@ -21,30 +21,35 @@ class Project
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      * @Groups({"project:read"})
+     * @Groups({"project:post"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=50)
      * @Groups({"project:read"})
+     * @Groups({"project:post"})
      */
     private $title;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
      * @Groups({"project:read"})
+     * @Groups({"project:post"})
      */
     private $picture;
 
     /**
      * @ORM\Column(type="string", length=30)
      * @Groups({"project:read"})
+     * @Groups({"project:post"})
      */
     private $date;
 
     /**
      * @ORM\Column(type="text")
      * @Groups({"project:read"})
+     * @Groups({"project:post"})
      */
     private $desciption;
 
@@ -72,14 +77,16 @@ class Project
     private $updatedAt;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Techno::class, inversedBy="projects")
+     * @ORM\ManyToMany(targetEntity=Techno::class, inversedBy="projects", cascade={"persist", "remove"})
      * @Groups({"project:read"})
+     * @Groups({"project:post"})
      */
     private $technos;
 
     /**
      * @ORM\OneToMany(targetEntity=Link::class, mappedBy="project", cascade={"persist", "remove"})
      * @Groups({"project:read"})
+     * @Groups({"project:post"})
      */
     private $links;
 

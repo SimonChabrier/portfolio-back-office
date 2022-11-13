@@ -1,6 +1,7 @@
 import React from 'react';
 import {Formik, Field, Form, ErrorMessage} from 'formik';
 import * as Yup from 'yup';
+import axios from 'axios';
 import "bootstrap/dist/css/bootstrap.css";
 
 const validationSchema = Yup.object().shape({
@@ -40,7 +41,36 @@ const initialValues = {
 
 
 const handleSubmit = (values) => {
-    console.log(values)
+
+// axios.post('https://127.0.0.1:8000/api/register', values);
+// console.log(values);
+
+axios.post('https://127.0.0.1:8000/api/register', 
+{
+    "title": "Project 1201",
+    "picture": "35b8e4896cf4f0a03721dd6fc65500e14fc97a9c.jpg",
+    "date": "Octobre 2022",
+    "desciption": "POst 1200",
+    "technos": [
+        {
+            "name": "php"
+        },
+        {
+            "name": "html"
+        },
+        {
+            "name": "css"
+        }
+    ],
+    "links": []
+})
+.then(function (response) {
+	console.log(response);
+})
+.catch(function (error) {
+	console.log(error);
+});
+
 };
 
 const FormYup = () => {
